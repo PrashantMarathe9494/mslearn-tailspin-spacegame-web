@@ -10,6 +10,8 @@
     <!-- <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" /> -->
     <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
   </ItemGroup>
+  
+  <PackageReference Include="Tailspin.SpaceGame.Web.Models" version 2.0.0-CI-20200506-093502" />
 
   <ItemGroup>
     <Folder Include="wwwroot\images\avatars\" />
