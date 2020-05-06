@@ -87,9 +87,6 @@ steps:
     publishTestResults: true
     projects: '**/*.Tests.csproj'
 
-- script: |
-    reportgenerator -reports:$(Build.SourcesDirectory)/**/coverage.cobertura.xml -targetdir:$(Build.SourcesDirectory)/CodeCoverage -reporttypes:HtmlInline_AzurePipelines
-  displayName: 'Create code coverage report'
 
 - task: SonarCloudAnalyze@1
   displayName: 'Run SonarCloud code analysis'
@@ -111,11 +108,6 @@ steps:
       eq(variables['System.PullRequest.TargetBranch'], 'master')
     )
 
-- task: PublishCodeCoverageResults@1
-  displayName: 'Publish code coverage report'
-  inputs:
-    codeCoverageTool: 'cobertura'
-    summaryFileLocation: '$(Build.SourcesDirectory)/**/coverage.cobertura.xml'
 
 - task: DotNetCoreCLI@2
   displayName: 'Publish the project - $(buildConfiguration)'
